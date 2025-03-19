@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background: #222;
+  font-family: system-ui;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.tw-followCard-button:hover {
+  background-color: #09f;
+  transition: 0.3s ease background-color;
+}
