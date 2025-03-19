@@ -3,8 +3,10 @@ import { useState } from "react";
 export function TwitterFollowCard({
   children,
   userName = "unknown",
-  isFollowing,
+  initialIsFollowing,
 }) {
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
+
   const text = isFollowing ? "Siguiendo" : "Seguir";
   const buttonClassName = isFollowing
     ? "tw-followCard-button is-following"
@@ -19,7 +21,7 @@ export function TwitterFollowCard({
       <header className="tw-followCard-header">
         <img
           className="tw-followCard-avatar"
-          alt="twitch"
+          alt="El avatar de midudev"
           src={`https://unavatar.io/${userName}`}
         />
         <div className="tw-followCard-info">
@@ -30,7 +32,8 @@ export function TwitterFollowCard({
 
       <aside>
         <button className={buttonClassName} onClick={handleClick}>
-          {text}
+          <span className="tw-followCard-text">{text}</span>
+          <span className="tw-followCard-stopFollow">Dejar de seguir</span>
         </button>
       </aside>
     </article>
